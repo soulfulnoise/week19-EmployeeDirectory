@@ -19,7 +19,7 @@ get firstInstructions(){
         name:"",
         phone:"",
         email:"",
-        dob:"",
+        bday:"",
     };
 } 
 
@@ -108,13 +108,13 @@ employeeFilter = (userInput) => {
 // seting and formatting dates also joining to show birthday
 //getting month in two digit in javascript date
 formatDate = (date) => {
-    date = new Date (date);
+    date = new Date(date);
     let bday = [];
     bday.push ("0" + (this.getMonth() + 1)).slice(-2);
     bday.push ("0" + date.getDate()).slice(-2);
     bday.push (date.getFULLYear());
 
-    //returing  bday
+    //returning  bday
 return bday.join("-");
 };
 
