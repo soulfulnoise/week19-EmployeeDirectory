@@ -2,7 +2,7 @@
   "name": "employee",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/soulfulnoise/week19-EmployeeDirectory",
+  "homepage": "http://soulfulnoise.github.io/week19-EmployeeDirectory/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
