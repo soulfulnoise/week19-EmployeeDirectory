@@ -4,6 +4,7 @@ import SearchBar from "../SearchBar";
 import EmployeeTable from "../Employee Table";
 import API from"../../utils/API";
 
+//Setting State
 class EmployeeContainer extends Component {
     state = {
         search:"",
@@ -11,4 +12,15 @@ class EmployeeContainer extends Component {
         employeesFilter:[],
         sortInstructions:this.firstInstructions,
     };
+
+//pulling in sortInstructions
+get firstInstructions(){
+    return {
+        name:"",
+        phone:"",
+        email:"",
+        dob:"",
+    };
+
+} 
 }
