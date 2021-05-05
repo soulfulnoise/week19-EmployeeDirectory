@@ -1,5 +1,7 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from "./componets/Header";
+import EmployeeContainer from "./componets/Container/EmployeeContainer";
 
 function App() {
   return (
