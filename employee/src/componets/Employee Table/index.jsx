@@ -1,6 +1,6 @@
 // imported React and my CSS
 import React from "react";
-import "./stley.css"
+import "./style.css"
 
 //Creating Employee Table 
 const EmployeeTable =(props) => {
