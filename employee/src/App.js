@@ -9,7 +9,7 @@ const App = () => {
       <Header/>
       <EmployeeContainer/>
     </div>
-  )
-}
+  );
+};
 
 export default App;
