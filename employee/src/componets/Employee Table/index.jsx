@@ -26,7 +26,31 @@ const EmployeeTable =(props) => {
                     </th>
                 </tr>
             </thead>
+            <tbody>
+                {props.state.employeefilter.map((employee) => {
+                    const { first, last } = employee.name;
+                    const firstLast = `${first} ${last}`;
 
-    )
+                    const bday = props.formatDate(employee.bday.date);
 
-}
+                    return(
+                        <tr key={employee.login.uuid}>
+                            <td>
+                                <img src={employee.thumnail} alt={firstLast} />
+                            </td>
+                            <td className="align-middle">{firstLast}</td>
+                            <td className="align-middle">
+                                <a href={`tel:1${employee.phone}`}> {employee.phone}</a>
+                            </td>
+                            <td className="align-middle">{bday}</td>
+                        </tr>
+                    );
+                })}
+            </tbody>
+            </table>
+
+    );
+
+};
+
+export default EmployeeTable;
