@@ -53,7 +53,7 @@ sortBy = (key, first = 0, second = 0) => {
         this.setState({
             employeeFilter:sortEmployee.reverse(),
             sortInstructions: {
-                ...this.sortInstructions,
+                ...this.sortBy,
                 [key]: this.state.sortInstructions[key] === "asc"? "desc" : "asc",
             },
         });
@@ -73,9 +73,17 @@ sortBy = (key, first = 0, second = 0) => {
             return a.localeCompare(b);
         }
         });
-    }
 
-}
+
+        this.setState({
+employeeFilter:sortEmployee,
+firstInstructions: {
+    ...this.sortBy,
+    [key]:"asc",
+},
+        });
+    }
+};
 
 
 }
