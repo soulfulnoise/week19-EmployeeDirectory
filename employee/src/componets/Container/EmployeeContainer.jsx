@@ -107,7 +107,7 @@ employeeFilter = (userInput) => {
   };
 // seting and formatting dates also joining to show birthday
 //getting month in two digit in javascript date
-formateDate = (date) => {
+formatDate = (date) => {
     date = new Date (date);
     let bday = [];
     bday.push ("0" + (this.getMonth() + 1)).slice(-2);
