@@ -33,6 +33,13 @@ componentDidMount() {
     }))
     .catch((err) => console.log(err));
 }
+// Filter employees by name
+handleInputChange = (event) => {
+    const value = event.target.value;
+    this.setState({ search:value });
+    this.employeeFilter(value.toLowerCase().trim());
+};
+
 
 }
 
