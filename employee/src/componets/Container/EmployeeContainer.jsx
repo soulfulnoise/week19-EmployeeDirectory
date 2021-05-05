@@ -131,7 +131,7 @@ render() {
               state={this.state}
               sortBy={this.sortBy}
               employeeFilter={this.employeeFilter}
-              formateDate={this.formateDate}
+              formatDate={this.formatDate}
               />
           </div>
       </div>
