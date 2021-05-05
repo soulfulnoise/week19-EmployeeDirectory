@@ -40,6 +40,11 @@ handleInputChange = (event) => {
     this.employeeFilter(value.toLowerCase().trim());
 };
 
+//calling preventDefault
+handleFormSubmit= (event) => {
+    event.preventDefualt();
+};
+
 
 }
 
