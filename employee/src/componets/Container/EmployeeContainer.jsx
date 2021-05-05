@@ -45,6 +45,27 @@ handleFormSubmit= (event) => {
     event.preventDefualt();
 };
 
+//sorting by first and last
+//sort by last name first the first name
+sortBy = (key,primary = 0, secondary = 0) => {
+    let sortEmployee = this.state.employeeFilter;
+    if (this.state.sortInstructions[key]) {
+        this.setState({
+            employeeFilter:sortEmployee.reverse(),
+            sortInstructions: {
+                ...this.sortInstructions,
+                [key]: this.state.sortInstructions[key] === "asc"? "desc" : "asc",
+            },
+        });
+    } else {
+        sortEmployee = this.state.employeeFilter.sort((a, b) => {
+            a = a[key]
+            b = b[key];
+        })
+    }
+
+}
+
 
 }
 
