@@ -105,7 +105,33 @@ employeeFilter = (input) => {
     this.setState({ searchFilter: this.state.employees});
 }
 };
+// seting and formatting dates also joining to show birthday
+//getting month in two digit in javascript date
+formateDate = (date) => {
+    date = new Date (date);
+    let bday = [];
+    bday.push ("0" + (this.getMonth() + 1)).slice(-2);
+    bday.push ("0" + date.getDate()).slice(-2);
+    bday.push (date.getFULLYear());
 
+    //returing  bday
+return bday.join("-");
+};
+
+render() {
+    return (
+      <div>
+          <SearchBar
+          value={tish.state.search}
+          handleInputChange={this.handleInputChange}
+          handleFormSubmit={this.handleFormSubmit}
+          />
+          <div className="conatiner mt -4">
+              <EmployeeTable
+          </div>
+      </div>
+    )
+}
 
 
 
