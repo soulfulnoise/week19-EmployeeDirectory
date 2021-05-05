@@ -47,7 +47,7 @@ handleFormSubmit= (event) => {
 
 //sorting by first and last
 //sort by last name first the first name
-sortBy = (key,primary = 0, secondary = 0) => {
+sortBy = (key, first = 0, second = 0) => {
     let sortEmployee = this.state.employeeFilter;
     if (this.state.sortInstructions[key]) {
         this.setState({
@@ -59,9 +59,20 @@ sortBy = (key,primary = 0, secondary = 0) => {
         });
     } else {
         sortEmployee = this.state.employeeFilter.sort((a, b) => {
-            a = a[key]
+            a = a[key];
             b = b[key];
-        })
+
+        // using second child (firstname) to search id there is a exact match on the (first) last name.
+        //input method locale to compare strings in locale.
+        if(first) {
+            if(second && a[first] === b[first]) {
+                return a[second].localeCompare(b[second]);
+            }
+            return a[first].localeCompare(b[first]);
+        } else {
+            return a.localeCompare(b);
+        }
+        });
     }
 
 }
