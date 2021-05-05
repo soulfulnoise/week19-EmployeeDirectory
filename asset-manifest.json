@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/soulfulnoise/week19-EmployeeDirectory/static/css/main.fe88250e.chunk.css",
+    "main.js": "/soulfulnoise/week19-EmployeeDirectory/static/js/main.b4c7c621.chunk.js",
+    "main.js.map": "/soulfulnoise/week19-EmployeeDirectory/static/js/main.b4c7c621.chunk.js.map",
+    "runtime-main.js": "/soulfulnoise/week19-EmployeeDirectory/static/js/runtime-main.c3013841.js",
+    "runtime-main.js.map": "/soulfulnoise/week19-EmployeeDirectory/static/js/runtime-main.c3013841.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/soulfulnoise/week19-EmployeeDirectory/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.b3b925fa.chunk.js": "/soulfulnoise/week19-EmployeeDirectory/static/js/2.b3b925fa.chunk.js",
+    "static/js/2.b3b925fa.chunk.js.map": "/soulfulnoise/week19-EmployeeDirectory/static/js/2.b3b925fa.chunk.js.map",
+    "index.html": "/soulfulnoise/week19-EmployeeDirectory/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/soulfulnoise/week19-EmployeeDirectory/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.fe88250e.chunk.css.map": "/soulfulnoise/week19-EmployeeDirectory/static/css/main.fe88250e.chunk.css.map",
+    "static/js/2.b3b925fa.chunk.js.LICENSE.txt": "/soulfulnoise/week19-EmployeeDirectory/static/js/2.b3b925fa.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c3013841.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.b3b925fa.chunk.js",
+    "static/css/main.fe88250e.chunk.css",
+    "static/js/main.b4c7c621.chunk.js"
+  ]
+}
