@@ -85,6 +85,30 @@ firstInstructions: {
     }
 };
 
+employeeFilter = (input) => {
+    if (input) {
+        this.setState({
+            employeeFilter: this.state.employeeFilter.search((employee) =>
+            return (
+                employee.name.first
+                .toLowerCase()
+                .concat("", employee.name.last.toLowerCase())
+                .includes(input) ||
+                employee.phone.includes(input) ||
+                employee.phone.replace (/[^\w\s]/gi, "").includes(searchInput) ||
+                employee.email.includes(searchInput) ||
+                this.formateDate(employee.dob.date).includes(searchInput)
+            );
+        }),
+    });
+}else {
+    this.setState({ searchFilter: this.state.employees});
+}
+};
+
+
+
+
 
 }
 
