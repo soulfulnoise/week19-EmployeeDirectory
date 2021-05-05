@@ -9,7 +9,7 @@ class EmployeeContainer extends Component {
     state = {
         search:"",
         employees:[],
-        employeesFilter:[],
+        employeeFilter:[],
         sortInstructions:this.firstInstructions,
     };
 
@@ -23,5 +23,16 @@ get firstInstructions(){
     };
 } 
 
+//using the  api to load employees
+componentDidMount() {
+    API.getEmployees()
+    .then((res) => 
+    this.setState({
+        employees:res.data.results,
+        employeeFilter: res.data.results,
+    }))
+    .catch((err) => console.log(err));
+}
 
 }
+
