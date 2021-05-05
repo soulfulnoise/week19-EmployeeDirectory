@@ -84,27 +84,27 @@ firstInstructions: {
         });
     }
 };
-
-employeeFilter = (input) => {
-    if (input) {
-        this.setState({
-            employeeFilter: this.state.employeeFilter.search((employee) =>
-            return (
-                employee.name.first
-                .toLowerCase()
-                .concat("", employee.name.last.toLowerCase())
-                .includes(input) ||
-                employee.phone.includes(input) ||
-                employee.phone.replace (/[^\w\s]/gi, "").includes(searchInput) ||
-                employee.email.includes(searchInput) ||
-                this.formateDate(employee.dob.date).includes(searchInput)
-            );
+//based off input filter empolyees
+employeeFilter = (userInput) => {
+    if (userInput) {
+      this.setState({
+        searchFilter: this.state.employees.filter((employee) => {
+          return (
+            employee.name.first
+              .toLowerCase()
+              .concat(" ", employee.name.last.toLowerCase())
+              .includes(userInput) ||
+            employee.phone.includes(userInput) ||
+            employee.phone.replace(/[^\w\s]/gi, "").includes(userInput) ||
+            employee.email.includes(userInput) ||
+            this.formatDate(employee.dob.date).includes(userInput)
+          );
         }),
-    });
-}else {
-    this.setState({ searchFilter: this.state.employees});
-}
-};
+      });
+    } else {
+      this.setState({ searchFilter: this.state.employees });
+    }
+  };
 // seting and formatting dates also joining to show birthday
 //getting month in two digit in javascript date
 formateDate = (date) => {
@@ -122,7 +122,7 @@ render() {
     return (
       <div>
           <SearchBar
-          value={tish.state.search}
+          value={this.state.search}
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
           />
