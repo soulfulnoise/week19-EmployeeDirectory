@@ -8,18 +8,18 @@ With React created an employee Directory that will allow user to input to search
 4.[ License](#licnse)
 
 
-### General Info
+## General Info
 Head over to <a href="https://github.com/soulfulnoise/week19-EmployeeDirectory">
 
  With Employee Directory user will be able  to input to search for employees as well as search via coloumns.They well be able to see first and last name worknumber and date of birth.
 
- ### Installation
+ # Installation
 Clone the repository and then do npm i && npm start.
 
- ### Preview
+ # Preview
 
- ### Contribution
+ # Contribution
  Aarash tyler and Eiman
 
- ### License 
+ # License 
  MPL-2.0 license
