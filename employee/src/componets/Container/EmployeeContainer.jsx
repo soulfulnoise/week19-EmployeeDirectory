@@ -128,14 +128,17 @@ render() {
           />
           <div className="conatiner mt -4">
               <EmployeeTable
-              
+              state={this.state}
+              sortBy={this.sortBy}
+              employeeFilter={this.employeeFilter}
+              formateDate={this.formateDate}
+              />
           </div>
       </div>
-    )
+    );
 }
 
-
-
-
 }
+
+export default EmployeeContainer;
 

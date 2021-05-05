@@ -1,0 +1,11 @@
+/*click it*/
+thead th span{
+    cursor:pointer;
+}
+
+tbody {
+    display:block;
+    overflow-y:auto;
+    overflow-x:hidden;
+    max-height: 60vh;
+}
