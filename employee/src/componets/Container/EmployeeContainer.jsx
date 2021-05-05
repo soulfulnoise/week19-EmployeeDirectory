@@ -2,90 +2,90 @@
 import React, { Component } from "react";
 import SearchBar from "../SearchBar";
 import EmployeeTable from "../Employee Table";
-import API from"../../utils/API";
+import API from "../../utils/API";
 
 //Setting State
 class EmployeeContainer extends Component {
-    state = {
-        search:"",
-        employees:[],
-        employeeFilter:[],
-        sortInstructions:this.firstInstructions,
-    };
+  state = {
+    search: "",
+    employees: [],
+    employeeFilter: [],
+    sortInstructions: this.firstInstructions,
+  };
 
-//pulling in sortInstructions
-get firstInstructions(){
+  //pulling in sortInstructions
+  get firstInstructions() {
     return {
-        name:"",
-        phone:"",
-        email:"",
-        bday:"",
+      name: "",
+      phone: "",
+      email: "",
+      bday: "",
     };
-} 
+  }
 
-//using the  api to load employees
-componentDidMount() {
+  //using the  api to load employees
+  componentDidMount() {
     API.getEmployees()
-    .then((res) => 
-    this.setState({
-        employees:res.data.results,
-        employeeFilter: res.data.results,
-    }))
-    .catch((err) => console.log(err));
-}
-// Filter employees by name
-handleInputChange = (event) => {
+      .then((res) =>
+        this.setState({
+          employees: res.data.results,
+          employeeFilter: res.data.results,
+        })
+      )
+      .catch((err) => console.log(err));
+  }
+  // Filter employees by name
+  handleInputChange = (event) => {
     const value = event.target.value;
-    this.setState({ search:value });
+    this.setState({ search: value });
     this.employeeFilter(value.toLowerCase().trim());
-};
+  };
 
-//calling preventDefault
-handleFormSubmit= (event) => {
+  //calling preventDefault
+  handleFormSubmit = (event) => {
     event.preventDefualt();
-};
+  };
 
-//sorting by first and last
-//sort by last name first the first name
-sortBy = (key, first = 0, second = 0) => {
+  //sorting by first and last
+  //sort by last name first the first name
+  sortBy = (key, first = 0, second = 0) => {
     let sortEmployee = this.state.employeeFilter;
     if (this.state.sortInstructions[key]) {
-        this.setState({
-            employeeFilter:sortEmployee.reverse(),
-            sortInstructions: {
-                ...this.sortBy,
-                [key]: this.state.sortInstructions[key] === "asc"? "desc" : "asc",
-            },
-        });
+      this.setState({
+        employeeFilter: sortEmployee.reverse(),
+        sortInstructions: {
+          ...this.sortBy,
+          [key]: this.state.sortInstructions[key] === "asc" ? "desc" : "asc",
+        },
+      });
     } else {
-        sortEmployee = this.state.employeeFilter.sort((a, b) => {
-            a = a[key];
-            b = b[key];
+      sortEmployee = this.state.employeeFilter.sort((a, b) => {
+        a = a[key];
+        b = b[key];
 
         // using second child (firstname) to search id there is a exact match on the (first) last name.
         //input method locale to compare strings in locale.
-        if(first) {
-            if(second && a[first] === b[first]) {
-                return a[second].localeCompare(b[second]);
-            }
-            return a[first].localeCompare(b[first]);
+        if (first) {
+          if (second && a[first] === b[first]) {
+            return a[second].localeCompare(b[second]);
+          }
+          return a[first].localeCompare(b[first]);
         } else {
-            return a.localeCompare(b);
+          return a.localeCompare(b);
         }
-        });
+      });
 
-
-        this.setState({
-employeeFilter:sortEmployee,
-firstInstructions: {
-    ...this.sortBy,
-    [key]:"asc",
-},
-        });
+      this.setState({
+        employeeFilter: sortEmployee,
+        firstInstructions: {
+          ...this.sortBy,
+          [key]: "asc",
+        },
+      });
     }
-};
-//based off input filter empolyees
-employeeFilter = (userInput) => {
+  };
+  //based off input filter empolyees
+  employeeFilter = (userInput) => {
     if (userInput) {
       this.setState({
         searchFilter: this.state.employees.filter((employee) => {
@@ -105,40 +105,38 @@ employeeFilter = (userInput) => {
       this.setState({ searchFilter: this.state.employees });
     }
   };
-// seting and formatting dates also joining to show birthday
-//getting month in two digit in javascript date
-formatDate = (date) => {
+  // seting and formatting dates also joining to show birthday
+  //getting month in two digit in javascript date
+  formatDate = (date) => {
     date = new Date(date);
-    let bday = [];
-    bday.push ("0" + (date.getMonth() + 1)).slice(-2);
-    bday.push ("0" + date.getDate()).slice(-2);
-    bday.push (date.getFULLYear());
+    let dob = [];
+    dob.push(("0" + (date.getMonth() + 1)).slice(-2));
+    dob.push(("0" + date.getDate()).slice(-2));
+    dob.push(date.getFullYear());
 
-    //returning  bday
-return bday.join("-");
-};
+    // Join date
+    return dob.join("-");
+  };
 
-render() {
+  render() {
     return (
       <div>
-          <SearchBar
+        <SearchBar
           value={this.state.search}
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
+        />
+        <div className="conatiner mt -4">
+          <EmployeeTable
+            state={this.state}
+            sortBy={this.sortBy}
+            employeeFilter={this.employeeFilter}
+            formatDate={this.formatDate}
           />
-          <div className="conatiner mt -4">
-              <EmployeeTable
-              state={this.state}
-              sortBy={this.sortBy}
-              employeeFilter={this.employeeFilter}
-              formatDate={this.formatDate}
-              />
-          </div>
+        </div>
       </div>
     );
-}
-
+  }
 }
 
 export default EmployeeContainer;
-

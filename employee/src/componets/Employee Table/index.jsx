@@ -31,7 +31,7 @@ const EmployeeTable =(props) => {
                     const { first, last } = employee.name;
                     const fullName = `${first} ${last}`;
 
-                    const bday = props.formatDate(employee.bday);
+                    const dob = props.formatDate(employee.dob.date);
 
                     return(
                         <tr key={employee.login.uuid}>
@@ -42,7 +42,7 @@ const EmployeeTable =(props) => {
                             <td className="align-middle">
                                 <a href={`tel:1${employee.phone}`}> {employee.phone}</a>
                             </td>
-                            <td className="align-middle">{bday}</td>
+                            <td className="align-middle">{dob}</td>
                         </tr>
                     );
                 })}
