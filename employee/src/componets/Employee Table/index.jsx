@@ -29,16 +29,16 @@ const EmployeeTable =(props) => {
             <tbody>
                 {props.state.employeefilter.map((employee) => {
                     const { first, last } = employee.name;
-                    const firstLast = `${first} ${last}`;
+                    const fullName = `${first} ${last}`;
 
                     const bday = props.formatDate(employee.bday.date);
 
                     return(
                         <tr key={employee.login.uuid}>
                             <td>
-                                <img src={employee.thumnail} alt={firstLast} />
+                                <img src={employee.thumnail} alt={fullName} />
                             </td>
-                            <td className="align-middle">{firstLast}</td>
+                            <td className="align-middle">{fullName}</td>
                             <td className="align-middle">
                                 <a href={`tel:1${employee.phone}`}> {employee.phone}</a>
                             </td>
