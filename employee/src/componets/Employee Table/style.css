@@ -10,6 +10,7 @@ tbody {
     max-height: 60vh;
 }
 
+/* want table to easy be seen and also to be displayed*/
 thead,
 tbody tr {
     display:table;
