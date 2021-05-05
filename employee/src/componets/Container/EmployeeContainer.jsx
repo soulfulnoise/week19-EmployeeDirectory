@@ -110,7 +110,7 @@ employeeFilter = (userInput) => {
 formatDate = (date) => {
     date = new Date(date);
     let bday = [];
-    bday.push ("0" + (this.getMonth() + 1)).slice(-2);
+    bday.push ("0" + (date.getMonth() + 1)).slice(-2);
     bday.push ("0" + date.getDate()).slice(-2);
     bday.push (date.getFULLYear());
 

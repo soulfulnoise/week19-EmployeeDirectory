@@ -31,7 +31,7 @@ const EmployeeTable =(props) => {
                     const { first, last } = employee.name;
                     const fullName = `${first} ${last}`;
 
-                    const bday = props.formatDate(employee.bday.date);
+                    const bday = props.formatDate(employee.bday);
 
                     return(
                         <tr key={employee.login.uuid}>
