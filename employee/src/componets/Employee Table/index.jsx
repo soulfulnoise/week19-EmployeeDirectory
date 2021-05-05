@@ -27,7 +27,7 @@ const EmployeeTable =(props) => {
                 </tr>
             </thead>
             <tbody>
-                {props.state.employeefilter.map((employee) => {
+                {props.state.employeeFilter.map((employee) => {
                     const { first, last } = employee.name;
                     const fullName = `${first} ${last}`;
 
